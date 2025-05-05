@@ -1,0 +1,63 @@
+**Detailed Prompts for Generating Structured Startup Plans
+(Replace `<idea>` with your specific concept, and run one prompt after the other given previous response, preferably with GPT 4.5)
+
+---
+
+## **Foundations**
+
+### **1. Goals**
+> “Create a structured table defining clear operational goals, timelines, key results, and KPIs (Key Performance Indicators) for a startup idea centered around `<idea>`. Provide entries for weekly, bi-weekly, monthly, and quarterly horizons.”
+
+### **2. Systems**
+> “Develop a comprehensive table outlining key hypotheses, validation goals, and scripts/questions for interviews and surveys regarding the idea `<idea>`. Include clearly formulated hypotheses, associated research goals, and direct, engaging scripts or questions for stakeholders.”
+
+---
+
+## **Market Testing**
+
+### **3. Market Research**
+> “Provide a detailed market research outline with qualification criteria for end users and stakeholders relevant to `<idea>`. Specify professional sectors, decision-maker roles, organizational sizes, geographic focuses, and interests.”
+
+### **4. Assets**
+> “Create detailed outreach templates including professional email and LinkedIn messages for initiating dialogues about collaboration, investment, or feedback regarding `<idea>`. Ensure a clear value proposition and concise call to action.”
+
+### **5. Marketing**
+> “Design a clear table to set advertising goals, targeted ad platforms, pros/cons of each platform, and ad testing experiments to promote `<idea>`. Include targeting demographics, psychographics, value propositions, visuals, calls to action, and URLs.”
+
+### **6. Sales**
+> “Develop a detailed sales plan and sales funnel describing how you would approach direct sales, partnerships, and customer acquisition for `<idea>`. Include target segments, funnel stages, and initial outreach strategy with follow-up planning.”
+
+---
+
+## **Product Development**
+
+### **7. Product Roadmap**
+> “Outline a structured product roadmap table listing essential features of your product `<idea>` categorized by urgency (Now, Next, Later). Provide a 1-10 ranking for importance and ease of implementation for each feature.”
+
+### **8. Design**
+> “Provide a list of appropriate tools, frameworks, and templates useful for designing interactive and intuitive user interfaces and prototypes tailored specifically for `<idea>`. Include reasoning for each tool selection.”
+
+### **9. User Testing**
+> “Generate a comprehensive user testing plan for `<idea>`, including research goals, structured testing scripts/tasks, outreach message templates, and methods to document and analyze participant feedback effectively.”
+
+### **10. Engineering**
+> “Create a clear comparison table evaluating potential technology stacks (frontend, backend, databases), as well as no-code and low-code solutions suitable for building `<idea>`. Include pros, cons, feasibility, pricing, and recommended choices.”
+
+---
+
+## **Resource Acquisition**
+
+### **11. Legal**
+> “Formulate a detailed table prioritizing key legal considerations and documentation required for launching `<idea>`. Clearly outline urgency, business impact, personal impact, and a suggested representation strategy with legal professionals.”
+
+### **12. Finance**
+> “Develop a comprehensive financial model and proforma tables for `<idea>`, including revenue forecasts, cost of goods sold (COGS), operating expenses, staffing plans, profit and loss statements, lifetime value (LTV), and customer acquisition costs (COCA).”
+
+### **13. Pitch Deck**
+> “Create a structured content outline for a compelling pitch deck for `<idea>` following these sections: Sales strategy, Overall economics (including LTV/COCA), Production strategy (design & build), Scaling strategy, Financial projections, and Competitive advantages.”
+
+### **14. Fundraising**
+> “Provide a detailed fundraising strategy template for `<idea>` listing potential sources of funding (with fit ratings), investment milestones, executive summaries, teaser/elevator pitches, investor outreach templates, and investor pipeline tracking formats.”
+
+### **15. Hiring**
+> “Generate a clear hiring strategy for `<idea>` identifying crucial roles, job descriptions, suitable recruitment channels (job boards, LinkedIn), proactive sourcing strategies, interview criteria/processes, and compensation packages including salaries and equity.”

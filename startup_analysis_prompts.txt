@@ -1,0 +1,95 @@
+**Detailed Prompts for Generating Comprehensive Startup Analysis**
+(Replace `<idea>` with your specific concept, and run one prompt after the other given previous response, preferably with GPT 4.5)
+
+---
+
+### Who is your customer?
+
+**1. Market Segmentation**
+Generate a detailed market segmentation table for `<idea>`, including potential customer segments, end-user types, tasks, benefits, urgency of needs, and example end users.
+
+**2. Beachhead Market**
+Create a comparative analysis table to determine the best beachhead market for `<idea>`, ranking segments by customer funding, sales accessibility, compelling reason to buy, ability to deliver the complete product, competition presence, leverage into other markets, and team alignment.
+
+**3. End User Profile**
+Create an end-user profile for the beachhead market of `<idea>`, including detailed demographics, psychographics, proxy products, daily life activities, watering holes, and priorities.
+
+**4. Beachhead TAM Size**
+Generate a top-down and bottom-up Total Addressable Market (TAM) estimation table for `<idea>`, including pricing, units per end-user, lifetime, annualized revenue per unit, budget data points, end-user density, profitability estimates, growth rate, and anticipated market share.
+
+**5. Persona**
+Develop a detailed persona profile for `<idea>`, covering demographics, psychographics, employment history, hobbies, motivations, fears, aspirations, personality traits, typical daily tasks, and priorities.
+
+---
+
+### What can you do for your customer?
+
+**6. Life Cycle Use Cases**
+Outline life cycle use cases detailing the persona’s experience with `<idea>` from awareness, research, purchase, setup, usage, to advocacy.
+
+**7. High-Level Specs**
+List high-level technical or service specifications of `<idea>`, focusing on essential features, functionalities, and components critical for satisfying the customer persona.
+
+**8. Quantify Value Proposition**
+Clearly quantify the value proposition of `<idea>`, identifying key priorities of customers, measurable benefits provided, current issues addressed, and proposed improvements.
+
+**9. Next 10 Customers**
+Generate a table of the next 10 potential customers for `<idea>`, including relevant details like customer type, demographic and psychographic insights, use cases, value propositions, and overall priority.
+
+**10. Define Core**
+Identify the core value proposition and competitive advantages of `<idea>`, including team assets, unique capabilities, intellectual property, and strategic advantages.
+
+**11. Chart Competitive Position**
+Create a competitive landscape chart positioning `<idea>` among competitors, clearly identifying differentiators and market positioning.
+
+---
+
+### How does your customer acquire your product?
+
+**12. Determine DMU (Decision-Making Unit)**
+Describe the decision-making unit for purchasing `<idea>`, including end-users, economic buyers, and influencers, with demographic and psychographic details.
+
+**13. Map Customer Acquisition Process**
+Develop a detailed customer acquisition process for `<idea>`, outlining stages from need identification to post-sale evaluation, including timelines, key activities, associated risks, and mitigation strategies.
+
+**14. Follow-on TAM**
+Evaluate follow-on markets for `<idea>` by detailing each candidate market, leveraging core assets, TAM estimation, market pros and cons, and overall ranking.
+
+**15. Design Business Model**
+Analyze different business model options for `<idea>`, ranking them by customer fit, value creation, competitive advantage, and internal compatibility, then recommend the optimal model.
+
+**16. Pricing Framework**
+Develop a detailed pricing framework for `<idea>`, factoring customer decision-making, competition, value creation, technological maturity, perceived risk, and recommended pricing strategy.
+
+**17. LTV (Lifetime Value)**
+Calculate the Lifetime Value (LTV) for customers of `<idea>`, clearly listing inputs such as pricing, margins, retention rates, recurring revenues, and other relevant financial metrics.
+
+**18. Map Sales Process**
+Describe the sales channels and revenue engine for `<idea>`, specifying short, medium, and long-term strategies for direct sales, partnerships, online marketing, and funnel stages.
+
+**19. COCA (Cost of Customer Acquisition)**
+Detail the Cost of Customer Acquisition (COCA) for `<idea>`, including sales, marketing, and R&D expenses, with projections for initial entry, gaining traction, and steady-state phases.
+
+---
+
+### How do you systematically validate your product idea?
+
+**20. Identify Key Assumptions**
+List critical assumptions underlying `<idea>`, ranked by risk level, and describe potential impacts if these assumptions are incorrect.
+
+**21. Test Key Assumptions**
+Outline empirical tests for validating key assumptions of `<idea>`, specifying resources required, validation criteria, and possible outcomes.
+
+**22. Define MVP (Minimum Viable Product)**
+Define a Minimum Viable Product for `<idea>`, specifying essential features, expected pricing, key customer feedback loops, and financial viability.
+
+**23. Show Dogs Will Eat Dog Food**
+Identify critical performance indicators for validating market acceptance of `<idea>`, compare expected versus actual performance, and propose corrective actions.
+
+---
+
+### How will you develop and launch your product?
+
+**24. Develop Product Plan**
+Create a structured product development roadmap for `<idea>`, prioritizing features for the beachhead and follow-on markets, resource allocation, timelines, and clear developmental milestones.
+
