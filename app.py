@@ -316,38 +316,6 @@ Please provide a detailed response addressing this aspect of the review."""
     
     return sections
 
-# Function to extract text from a PDF file with better error handling
-def extract_text_from_pdf(pdf_file):
-    try:
-        # Create a copy of the file in memory to avoid issues with file streams closing
-        bytes_data = pdf_file.getvalue()
-        pdf_file_io = io.BytesIO(bytes_data)
-        
-        pdf_reader = PyPDF2.PdfReader(pdf_file_io)
-        text = ""
-        
-        # Extract text from each page with timeout protection
-        total_pages = len(pdf_reader.pages)
-        
-        # Limit to first 100 pages for very large documents to prevent timeouts
-        max_pages = min(total_pages, 100)
-        
-        for page_num in range(max_pages):
-            try:
-                page = pdf_reader.pages[page_num]
-                page_text = page.extract_text()
-                text += page_text + "\n\n"
-            except Exception as e:
-                text += f"[Error reading page {page_num+1}: {str(e)}]\n\n"
-                continue
-        
-        if total_pages > max_pages:
-            text += f"\n\n[Note: Only the first {max_pages} pages were processed out of {total_pages} total pages.]\n"
-            
-        return text
-    except Exception as e:
-        return f"Error extracting text from PDF: {str(e)}"
-
 # Function to generate a PDF from all the responses
 def generate_pdf(results, all_prompts):
     # Create a BytesIO buffer to receive the PDF data
@@ -983,7 +951,7 @@ def main():
     
     # Simple styling - no custom CSS
     
-    st.title("Startup Analysis & Planning Tool")
+    st.title("Startup Analysis and Planning")
     
     # Don't show API key field in GUI - use .env file or environment variables instead
     
@@ -1004,69 +972,12 @@ def main():
     if 'seen_results' not in st.session_state:
         st.session_state.seen_results = set()
     
-    # Create tabs for text input and PDF upload
-    tab1, tab2 = st.tabs(["Text Input", "PDF Upload"])
-    
-    with tab1:
-        # Text input
-        idea = st.text_area("Idea input", 
-                         value=st.session_state.idea if 'pdf_text' not in st.session_state else "",
-                         placeholder="Enter your idea here", 
-                         height=100,
-                         key="main_idea_input",
-                         label_visibility="hidden")
-        
-        # Clear PDF text if we're using text input
-        if idea and 'pdf_text' in st.session_state:
-            if st.button("Use this text instead of PDF"):
-                # Clear the PDF text and use the entered text
-                if 'pdf_text' in st.session_state:
-                    del st.session_state.pdf_text
-                st.session_state.idea = idea
-                st.rerun()
-        
-    with tab2:
-        # PDF upload
-        uploaded_file = st.file_uploader("Choose a PDF file", type="pdf")
-        
-        if uploaded_file is not None:
-            # Add a button to process the PDF to avoid automatic processing
-            if ('pdf_text' not in st.session_state) or (st.session_state.get('last_processed_file', None) != uploaded_file.name):
-                process_button = st.button("Process PDF")
-                if process_button:
-                    # Show a spinner while processing
-                    with st.spinner(f"Processing {uploaded_file.name}... This may take a moment."):
-                        try:
-                            # Extract text from the PDF file
-                            pdf_text = extract_text_from_pdf(uploaded_file)
-                            
-                            # Store the extracted text in session state
-                            st.session_state.pdf_text = pdf_text
-                            st.session_state.idea = pdf_text  # Use PDF text as the idea
-                            st.session_state.last_processed_file = uploaded_file.name
-                            
-                            # Display a preview of the extracted text
-                            st.write("Preview of extracted text:")
-                            preview_text = pdf_text[:1000] + "..." if len(pdf_text) > 1000 else pdf_text
-                            st.text_area("PDF Text Preview", value=preview_text, height=150, disabled=True)
-                            
-                            st.success(f"Successfully extracted text from {uploaded_file.name}")
-                        except Exception as e:
-                            st.error(f"Error processing PDF: {str(e)}")
-            else:
-                # Already processed this file, just show the preview
-                st.write("Preview of extracted text:")
-                preview_text = st.session_state.pdf_text[:1000] + "..." if len(st.session_state.pdf_text) > 1000 else st.session_state.pdf_text
-                st.text_area("PDF Text Preview", value=preview_text, height=150, disabled=True)
-                
-                st.success(f"Using text from {uploaded_file.name}")
-                
-                # Add a button to reprocess if needed
-                if st.button("Reprocess PDF"):
-                    # Remove from session state to trigger reprocessing
-                    if 'last_processed_file' in st.session_state:
-                        del st.session_state.last_processed_file
-                    st.rerun()
+    # Text input
+    idea = st.text_area("Idea input", 
+                     placeholder="Enter your idea here", 
+                     height=100,
+                     key="main_idea_input",
+                     label_visibility="hidden")
     
     # Make sure we still have a valid idea value, even if the text area is empty
     # This handles the case where the user has entered text, then clicked a button
@@ -1074,21 +985,12 @@ def main():
         idea = st.session_state.idea
     
     # Buttons in a row
-    button_col1, button_col2, button_col3, button_col4, button_col5, button_space = st.columns([1, 1, 1, 1, 1, 1])
+    button_col1, button_col2, button_space = st.columns([1, 1, 4])
     with button_col1:
-        analyze_button = st.button("Startup Analysis", use_container_width=True)
-    
+        analyze_button = st.button("Analyze", use_container_width=True)
+
     with button_col2:
-        plan_button = st.button("Startup Plan", use_container_width=True)
-        
-    with button_col3:
-        research_button = st.button("AI Research Paper", use_container_width=True)
-        
-    with button_col4:
-        neurips_button = st.button("NeurIPS Review", use_container_width=True)
-        
-    with button_col5:
-        iclr_button = st.button("ICLR Review", use_container_width=True)
+        plan_button = st.button("Plan", use_container_width=True)
     
     # Get input text (either from text area or PDF)
     # If text input is empty but we have text from PDF, use the PDF text
@@ -1131,59 +1033,7 @@ def main():
             # Rerun the app to reset everything
             st.rerun()
             
-    elif research_button:
-        if not input_text or input_text.strip() == "":
-            st.error("Please enter text or upload a PDF file first.")
-        else:
-            # Save idea to session state
-            st.session_state.idea = input_text
-            st.session_state.mode = "research"
-            
-            # Clear ALL previous results on new submission
-            st.session_state.results = {}
-            st.session_state.seen_results = set()
-            
-            # Reset to first prompt
-            st.session_state.current_prompt_index = 0
-            
-            # Rerun the app to reset everything
-            st.rerun()
-            
-    elif neurips_button:
-        if not input_text or input_text.strip() == "":
-            st.error("Please enter text or upload a PDF file first.")
-        else:
-            # Save idea to session state
-            st.session_state.idea = input_text
-            st.session_state.mode = "neurips"
-            
-            # Clear ALL previous results on new submission
-            st.session_state.results = {}
-            st.session_state.seen_results = set()
-            
-            # Reset to first prompt
-            st.session_state.current_prompt_index = 0
-            
-            # Rerun the app to reset everything
-            st.rerun()
-            
-    elif iclr_button:
-        if not input_text or input_text.strip() == "":
-            st.error("Please enter text or upload a PDF file first.")
-        else:
-            # Save idea to session state
-            st.session_state.idea = input_text
-            st.session_state.mode = "iclr"
-            
-            # Clear ALL previous results on new submission
-            st.session_state.results = {}
-            st.session_state.seen_results = set()
-            
-            # Reset to first prompt
-            st.session_state.current_prompt_index = 0
-            
-            # Rerun the app to reset everything
-            st.rerun()
+
     
     # Only continue if user has selected a mode
     if not st.session_state.mode:
