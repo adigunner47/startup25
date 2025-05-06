@@ -17,19 +17,6 @@ from reportlab.lib import colors
 # Load environment variables from .env file
 load_dotenv()
 
-# Password protection setup
-PASSWORD = "startup25"
-
-# Ask for password until correct
-while "password_correct" not in st.session_state or not st.session_state["password_correct"]:
-    password = st.text_input("Enter password", type="password")
-    if password == PASSWORD:
-        st.session_state["password_correct"] = True
-    else:
-        if password:
-            st.error("Incorrect password")
-        st.stop()
-
 
 # DIRECT APPROACH - Hardcoding the OpenAI client (same as in the simple app that works)
 # The key from the .env file is working in our test script, so use the exact same approach
@@ -951,6 +938,19 @@ def main():
         page_icon="🚀",
         layout="wide"
     )
+
+    # Password protection setup
+    PASSWORD = "startup25"
+    
+    # Ask for password until correct
+    while "password_correct" not in st.session_state or not st.session_state["password_correct"]:
+        password = st.text_input("Enter password", type="password")
+        if password == PASSWORD:
+            st.session_state["password_correct"] = True
+        else:
+            if password:
+                st.error("Incorrect password")
+            st.stop()
     
     # Set longer server timeout - helps prevent disconnections
     import streamlit.runtime.scriptrunner.script_runner as script_runner
